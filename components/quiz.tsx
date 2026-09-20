@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 
 type Question = {
   id: number;
@@ -39,6 +41,9 @@ export default function Quiz() {
   }, []);
 
   const currentQuestion = quizData[currentIndex];
+  if (!currentQuestion) {
+  return <p className="text-center mt-10">No question available.</p>;
+}
 
   const handleOptionClick = (optionIndex: number) => {
     if (showResult) return;
@@ -133,31 +138,35 @@ export default function Quiz() {
         <CardContent className="flex flex-col gap-4">
           <p className="text-lg">{currentQuestion.question}</p>
 
-          <div className="flex flex-col gap-2">
-            {currentQuestion.options.map((option, index) => {
-              let variant: "outline" | "default" | "destructive" = "outline";
+         <RadioGroup
+  value={selectedOption !== null ? String(selectedOption) : ""}
+  onValueChange={(value) => handleOptionClick(Number(value))}
+  disabled={showResult}
+  className="flex flex-col gap-2"
+>
+  {currentQuestion.options.map((option, index) => {
+    let stateClass = "border-input";
 
-              if (showResult) {
-                if (index === currentQuestion.correctAnswer) {
-                  variant = "default";
-                } else if (index === selectedOption) {
-                  variant = "destructive";
-                }
-              }
+    if (showResult) {
+      if (index === currentQuestion.correctAnswer) {
+        stateClass = "border-green-500 bg-green-500/10";
+      } else if (index === selectedOption) {
+        stateClass = "border-red-500 bg-red-500/10";
+      }
+    }
 
-              return (
-                <Button
-                  key={index}
-                  variant={variant}
-                  className="justify-start h-auto py-3 text-left whitespace-normal"
-                  onClick={() => handleOptionClick(index)}
-                  disabled={showResult}
-                >
-                  {option}
-                </Button>
-              );
-            })}
-          </div>
+    return (
+      <Label
+        key={index}
+        htmlFor={`option-${index}`}
+        className={`flex items-center gap-3 rounded-md border p-3 cursor-pointer transition-colors ${stateClass}`}
+      >
+        <RadioGroupItem value={String(index)} id={`option-${index}`} />
+        <span>{option}</span>
+      </Label>
+    );
+  })}
+</RadioGroup>
 
           {showResult && (
             <div className="flex justify-end">
