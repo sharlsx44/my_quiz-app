@@ -22,9 +22,6 @@ export default function Home() {
             <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">
               Test what you know. <span className="text-muted-foreground">Build what comes next.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">
-              Work through ten multiple-choice questions covering the foundations of modern computer systems and communication.
-            </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/quiz" className={buttonVariants({ size: "lg" })}>
                   Start Quiz
