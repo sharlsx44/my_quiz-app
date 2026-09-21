@@ -23,8 +23,7 @@ export function QuizHeader({ current, total, score }: QuizHeaderProps) {
         </div>
       </div>
       <div>
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">System Fundamentals</p>
-        <h1 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">Midterm Quiz</h1>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">Try your knowledge</p>
       </div>
       <ProgressBar current={current} total={total} />
     </header>

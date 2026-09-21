@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QuizDesk | System Fundamentals",
+  title: "QuizDesk",
   description: "A Next.js multiple-choice quiz application.",
 };
 
