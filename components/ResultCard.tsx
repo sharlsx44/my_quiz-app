@@ -18,7 +18,7 @@ export function ResultCard({ score, total }: ResultCardProps) {
       </div>
       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Quiz complete</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Your result</h1>
-      <p className="mt-3 text-muted-foreground">Here is your performance in the System Fundamentals midterm quiz.</p>
+      <p className="mt-3 text-muted-foreground">Here is your score in the quiz.</p>
 
       <div className="my-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Stat label="Total" value={total} />
