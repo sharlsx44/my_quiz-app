@@ -18,7 +18,7 @@ export default function Home() {
 
         <section className="grid items-center gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
           <div>
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-primary">Midterm examination</p>
+      
             <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">
               Test what you know. <span className="text-muted-foreground">Build what comes next.</span>
             </h1>
